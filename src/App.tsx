@@ -10,13 +10,19 @@ import PremiumPlan from "./screens/pages/PremiumPlan";
 import Header from "./components/screens_components/Header";
 import SignIn from "./screens/auth/SignIn";
 import SignUp from "./screens/auth/SignUp";
+import LandingPage from "./screens/pages/LandingPage";
+import PrivateRoute from "./components/utils_components/PrivateRoute";
 
 function App() {
   return (
     <BrowserRouter>
-      <SideMenu />
+      <PrivateRoute>
+        <SideMenu />
+      </PrivateRoute>
 
-      <Header />
+      <PrivateRoute>
+        <Header />
+      </PrivateRoute>
 
       <Routes>
         <Route path="/" element={<LandingPage />} />

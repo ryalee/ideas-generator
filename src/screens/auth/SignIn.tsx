@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebase.js';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -33,7 +34,7 @@ const SignIn: React.FC = () => {
         <button type="submit">Vamos lá</button>
       </form>
 
-      <p>Ainda não possui uma conta?<a href="/signup">Cadastre-se!</a></p>
+      <p>Ainda não possui uma conta?<Link to="/signup">Cadastre-se!</Link></p>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebase.js';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -24,8 +25,11 @@ const SignUp: React.FC = () => {
 
   return (
     <div>
-      <h3>Já possui uma conta?</h3>
-      <h1>Entrar</h1>
+      <div>
+        <h3>Vem sempre aqui?</h3>
+        <h3>Não??</h3>
+      </div>
+      <h1>Crie sua conta!</h1>
 
       <form onSubmit={handleSignUp}>
         <input type="text" placeholder='Nome' value={userName} onChange={(e) => setUserName(e.target.value)} required/>
@@ -35,7 +39,7 @@ const SignUp: React.FC = () => {
         <button type="submit">Vamos lá</button>
       </form>
 
-      <p>Ainda não possui uma conta?<a href="/signup">Cadastre-se!</a></p>
+      <p>Já possui uma conta?<Link to="/signin">Entre aqui</Link></p>
     </div>
   )
 }
