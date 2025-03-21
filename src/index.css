@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes premium {
+    0% {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff458, 0 0 20px #fff458;
+    }
+    100% {
+      text-shadow: 0 0 10px #fff, 0 0 15px #ff7a7a, 0 0 30px #ff7a7a;
+    }
+  }
+
+  .animate-premium {
+    animation: premium .5s infinite alternate;
+  }
+}
+
+body {
+  @apply bg-bg
+}
+
+.title {
+  @apply font-raleway font-semibold
+}
+
+.outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.raleway {
+  font-family: "Raleway", sans-serif;
+}
+
+.menuItem {
+  @apply text-text hover:text-secondary duration-200 flex text-center items-center gap-2
+}
+
+.menuIcon {
+  @apply text-[16pt]
+}
