@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
   return (
-    <div>
+    <div className='w-[100%]'>
       <h1 className='text-text'>bem vindos pussyrs</h1>
 
       <div>
@@ -11,7 +11,7 @@ export default function LandingPage() {
           <button>Entrar</button>
         </Link>
         
-        <Link>
+        <Link to='/signup'>
           <button>Cadastrar</button>
         </Link>
       </div>

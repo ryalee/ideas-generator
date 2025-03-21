@@ -1,9 +1,8 @@
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAbg5GwHAOmc_0gy5iL9ol4r4XkxkM16A0',
+  apiKey: 'AIzaSyAbg5GwHAOmc_0gy5iL9Ol4r4XkxkM16A0',
   authDomain: 'ideas-hub-6ecd5.firebaseapp.com',
   projectId: 'ideas-hub-6ecd5',
   storageBucket: 'ideas-hub-6ecd5.firebasestorage.app',
@@ -13,5 +12,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 export const auth = getAuth(app);

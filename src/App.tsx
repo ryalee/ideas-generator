@@ -16,58 +16,63 @@ import PrivateRoute from "./components/utils_components/PrivateRoute";
 function App() {
   return (
     <BrowserRouter>
-      <PrivateRoute>
-        <SideMenu />
-      </PrivateRoute>
-
-      <PrivateRoute>
-        <Header />
-      </PrivateRoute>
-
       <Routes>
+        {/* Rotas publicas */}
         <Route path="/" element={<LandingPage />} />
 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-
+        {/* Rotas usuário autenticado  */}
         <Route
           path="/home"
           element={
             <PrivateRoute>
-              <Home />
+              <>
+                <SideMenu />
+                <Header />
+                <Home />
+              </>
             </PrivateRoute>
           }
         />
         <Route
           path="/gallery"
           element={
-            <PrivateRoute>
+            <>
+              <SideMenu />
+              <Header />
               <Gallery />
-            </PrivateRoute>
+            </>
           }
         />
         <Route
           path="/profile"
           element={
-            <PrivateRoute>
+            <>
+              <SideMenu />
+              <Header />
               <Profile />
-            </PrivateRoute>
+            </>
           }
         />
         <Route
           path="/settings"
           element={
-            <PrivateRoute>
+            <>
+              <SideMenu />
+              <Header />
               <Settings />
-            </PrivateRoute>
+            </>
           }
         />
         <Route
           path="/premiumplan"
           element={
-            <PrivateRoute>
+            <>
+              <SideMenu />
+              <Header />
               <PremiumPlan />
-            </PrivateRoute>
+            </>
           }
         />
       </Routes>

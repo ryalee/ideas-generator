@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../../services/firebase.js';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -10,13 +10,15 @@ const SignUp: React.FC = () => {
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
 
-  const handleSignUp = async (e: React.FormEvent) => {
+  const handleSignUp = async (e: React.FormEvent, name) => {
     e.preventDefault();
 
+    const userInfo = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(userInfo.user, {displayName: name})
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       alert('Sua conta foi criada, seja muito bem vindo! :)');
-      navigate('/');
+      navigate('/home');
     } catch (error) {
       alert('Erro ao criar conta.')
       console.error(error)
