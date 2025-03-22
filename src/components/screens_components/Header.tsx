@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Greeting from "../utils_components/Greeting";
 import { onAuthStateChanged } from "firebase/auth";
+import { auth } from './../../services/firebase';
 
 export default function Header() {
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log(user)
       if(user) {
         setUserName(user.displayName || 'Visitante');
       }
